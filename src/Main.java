@@ -1,3 +1,5 @@
+import java.util.ArrayList;
+
 
 public class Main {
 	public static void main(String[] args) {
@@ -6,6 +8,7 @@ public class Main {
 		
 		Carte carte = new Carte("nume carte", autor, cuprins);
 		
-		carte.addCapitol("Capitolul1", subcapitole);
+//		ArrayList<Subcapitol> subcapitole;
+//		carte.addCapitol("Capitolul1", subcapitole);
 	}
 }

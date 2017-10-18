@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 
+
 public class Capitol {
 	private String titlu;
 	private ArrayList<Subcapitol> subcapitole;
