@@ -1,5 +1,5 @@
 
-public class Imagine {
+public class Imagine implements Element{
 	private String nume;
 
 	public Imagine(String nume) {
@@ -15,9 +15,23 @@ public class Imagine {
 		this.nume = nume;
 	}
 
-	@Override
-	public String toString() {
-		return "Imagine [nume=" + nume + "]";
+	public void add(Element e) throws Exception {
+		throw new Exception("Not Supported");
+		
+	}
+
+	public void remove(Element e) throws Exception {
+		throw new Exception("Not Supported");
+		
+	}
+
+	public Element getElement(int index) throws Exception {
+		throw new Exception("Not Supported");
+	}
+
+	public void print() {
+		System.out.println("Imagine [nume=" + nume + "]");
+		
 	}
 	
 	

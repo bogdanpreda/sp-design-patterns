@@ -1,7 +1,10 @@
+import java.util.ArrayList;
 
-public class Paragraf {
+
+public class Paragraf implements Element{
 	private String text;
-
+	private ArrayList<Element> elemente;
+	
 	public Paragraf(String text) {
 		super();
 		this.text = text;
@@ -15,9 +18,23 @@ public class Paragraf {
 		this.text = text;
 	}
 
-	@Override
-	public String toString() {
-		return "Paragraf [text=" + text + "]";
+	public void add(Element e) throws Exception {
+		throw new Exception("Not Supported");
+		
+	}
+
+	public void remove(Element e) throws Exception {
+		throw new Exception("Not Supported");
+		
+	}
+
+	public Element getElement(int index) throws Exception {
+		throw new Exception("Not Supported");
+		
+	}
+
+	public void print() {
+		System.out.println("Paragraf [text=" + text + "]");
 	}
 	
 }
