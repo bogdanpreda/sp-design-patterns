@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class Sectiune implements Element{
+public class Sectiune extends AbstractElement{
 	private String titlu;
 	private ArrayList<Element> continutSectiune = new ArrayList<Element>();
 	

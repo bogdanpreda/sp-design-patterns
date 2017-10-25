@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class Paragraf implements Element{
+public class Paragraf extends AbstractElement{
 	private String text;
 	private ArrayList<Element> elemente;
 	
@@ -16,21 +16,6 @@ public class Paragraf implements Element{
 
 	public void setText(String text) {
 		this.text = text;
-	}
-
-	public void add(Element e) throws Exception {
-		throw new Exception("Not Supported");
-		
-	}
-
-	public void remove(Element e) throws Exception {
-		throw new Exception("Not Supported");
-		
-	}
-
-	public Element getElement(int index) throws Exception {
-		throw new Exception("Not Supported");
-		
 	}
 
 	public void print() {
