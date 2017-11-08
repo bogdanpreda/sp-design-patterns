@@ -1,5 +1,5 @@
 
-public class AbstractElement implements Element{
+public abstract class AbstractElement implements Element{
 
 	public void add(Element e) throws Exception {
 		throw new Exception("Not Supported");
@@ -13,10 +13,6 @@ public class AbstractElement implements Element{
 
 	public Element getElement(int index) throws Exception {
 		throw new Exception("Not Supported");
-	}
-	
-	public void print() {
-		
 	}
 	
 }

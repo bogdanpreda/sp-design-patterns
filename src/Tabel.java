@@ -19,4 +19,8 @@ public class Tabel extends AbstractElement{
 		
 	}
 
+	public void accept(Visitor v) {
+		v.visitTabel(this);
+	}
+
 }

@@ -17,6 +17,11 @@ public class Sectiune extends AbstractElement{
 		return continutSectiune.get(index);
 	}
 
+
+	public void accept(Visitor v) {
+		v.visitSectiune(this);
+	}
+	
 	public void print() {
 		System.out.println(titlu);
 		for(Element e : continutSectiune) {

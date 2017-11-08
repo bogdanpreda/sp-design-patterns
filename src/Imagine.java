@@ -15,6 +15,11 @@ public class Imagine extends AbstractElement{
 		this.nume = nume;
 	}
 
+
+	public void accept(Visitor v) {
+		v.visitImage(this);
+	}
+	
 	public void print() {
 		System.out.println("Imagine [nume=" + nume + "]");
 		

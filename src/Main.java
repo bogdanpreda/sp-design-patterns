@@ -8,6 +8,10 @@ public class Main {
 		
 		Carte carte = new Carte("nume carte", autor, cuprins);
 		
+		Sectiune s1 = new Sectiune();
+		
+		c.add(s1);
+		
 //		ArrayList<Subcapitol> subcapitole;
 //		carte.addCapitol("Capitolul1", subcapitole);
 	}

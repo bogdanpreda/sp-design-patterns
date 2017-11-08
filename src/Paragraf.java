@@ -17,6 +17,11 @@ public class Paragraf extends AbstractElement{
 	public void setText(String text) {
 		this.text = text;
 	}
+	
+
+	public void accept(Visitor v) {
+		v.visitParagraf(this);
+	}
 
 	public void print() {
 		System.out.println("Paragraf [text=" + text + "]");
