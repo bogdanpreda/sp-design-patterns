@@ -16,6 +16,11 @@ public class Carte {
 		this.cuprins = cuprins;	
 	}
 	
+	public void accept(DocumentStatVisitor dsv) {
+		for(Element elem : content) {
+			elem.accept(elem);
+		}
+	}
 	//TODO: to be updated using the composite design pattern
 //	public Carte(String numeCarte, String numeAutor, String numeCuprins, String titluCapitol, String titluSubcapitol, String textParagraf, String numeImagine, String numeTabel) {
 //		this.nume = numeCarte;

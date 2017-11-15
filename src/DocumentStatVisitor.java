@@ -1,4 +1,6 @@
-
+import org.json.*;
+import org.json.simple.JSONArray;
+import org.json.simple.JSONObject;
 public class DocumentStatVisitor implements Visitor{
 
 	private int imageCounter = 0;
@@ -44,5 +46,18 @@ public class DocumentStatVisitor implements Visitor{
 		return sectiuneCounter;
 	}
 	
-	
+	public void printStatistica() {
+		JSONObject counters = new JSONObject();
+		
+		counters.put("visitImageProxy", this.getImageCounter());
+		counters.put("visitImage", this.getImageCounter());
+		counters.put("visitParagraf", this.getParagrafCounter());
+		counters.put("visitTabel", this.getTabelCounter());
+		counters.put("visitSectiune", this.getSectiuneCounter());
+		
+		JSONObject jsonOutput = new JSONObject();
+		jsonOutput.put("conters", counters);
+		
+		System.out.println(jsonOutput.toString());
+	}
 }
