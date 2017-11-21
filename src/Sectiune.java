@@ -3,8 +3,12 @@ import java.util.ArrayList;
 
 public class Sectiune extends AbstractElement{
 	private String titlu;
-	private ArrayList<Element> continutSectiune = new ArrayList<Element>();
+	private ArrayList<Element> continutSectiune;
 	
+	public Sectiune(String titlu) {
+		continutSectiune  = new ArrayList<Element>();
+		this.titlu = titlu;
+	}
 	public void add(Element e) throws Exception {
 		continutSectiune.add(e);
 	}

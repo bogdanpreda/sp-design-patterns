@@ -1,12 +1,16 @@
-import java.awt.Image;
-
 
 public class ImageProxy extends AbstractElement{
 	private String fileName;
-	private Image realImage = null;
+	private Imagine realImage = null;
 	
 	ImageProxy(String filename) {
 		this.fileName = filename;
 	}
 	
+	public void print(){
+		if(realImage == null){
+			realImage = new Imagine(fileName);
+		}
+		realImage.print();
+	}
 }
