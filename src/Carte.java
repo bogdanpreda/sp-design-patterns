@@ -23,6 +23,12 @@ public class Carte {
 	}
 	
 	public void print(){
+		System.out.println("Titlu: " + this.titlu);
+		System.out.print("Autori: ");
+		for(Autor autor : this.autori) {
+			System.out.print(autor + (autor == this.autori.get(this.autori.size() -1) ? "\n" : ", "));
+		}
+		
 		for(Element e : this.capitole){
 			e.print();
 		}

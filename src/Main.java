@@ -1,12 +1,14 @@
 
 public class Main {
 	public static void main(String[] args) throws Exception {
-		Autor autor = new Autor("nume autor");
+		Autor autor = new Autor("Autor1");
+		Autor autor2 = new Autor("Autor2");
+		
 		Cuprins cuprins = new Cuprins("nume cuprins");
 		
 		Carte carte = new Carte("nume carte"	, cuprins);
 		carte.addAutor(autor);
-
+		carte.addAutor(autor2);
 		Sectiune s1 = new Sectiune("Sectiune 1");
 		s1.add(new Imagine("img1.jpg"));
 
