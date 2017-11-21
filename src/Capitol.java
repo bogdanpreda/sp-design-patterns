@@ -1,4 +1,3 @@
-import java.util.ArrayList;
 
 //TODO: to be removed
 public class Capitol	{

@@ -3,11 +3,12 @@ import java.util.ArrayList;
 
 public class Paragraf extends AbstractElement{
 	private String text;
-	private ArrayList<Element> elemente;
+	private AlignStrategy alignment;
 	
-	public Paragraf(String text) {
+	public Paragraf(String text, AlignStrategy alignment) {
 		super();
 		this.text = text;
+		this.alignment = alignment;
 	}
 
 	public String getText() {
@@ -19,7 +20,12 @@ public class Paragraf extends AbstractElement{
 	}
 
 	public void print() {
-		System.out.println("Paragraf [text=" + text + "]");
+		if(this.alignment == null) {
+			System.out.println("*" + this.text);
+		} else {
+			this.alignment.printAligned(this.text);
+		}
+		
 	}
 	
 }

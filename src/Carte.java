@@ -5,6 +5,9 @@ public class Carte {
 	private ArrayList<Autor> autori;
 	private Cuprins cuprins;
 	private ArrayList<Element> capitole;
+	public AlignStrategy leftAlignment = new LeftAlignment();
+	public AlignStrategy centerAlignment= new CenterAlignment();
+	public AlignStrategy rightAlignment = new RightAlignment();
 	
 	public Carte() {
 		this.titlu = "";
