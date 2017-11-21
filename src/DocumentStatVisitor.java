@@ -1,3 +1,7 @@
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+
 import org.json.*;
 import org.json.simple.JSONArray;
 import org.json.simple.JSONObject;
@@ -46,6 +50,30 @@ public class DocumentStatVisitor implements Visitor{
 		return sectiuneCounter;
 	}
 	
+	private void writeStringToFile(String file, String msg) {
+		BufferedWriter writer = null;
+		try
+		{
+		    writer = new BufferedWriter( new FileWriter(file));
+		    writer.write(msg);
+
+		}
+		catch ( IOException e)
+		{
+		}
+		finally
+		{
+		    try
+		    {
+		        if ( writer != null)
+		        writer.close( );
+		    }
+		    catch ( IOException e)
+		    {
+		    }
+		}
+	}
+	
 	public void printStatistica() {
 		JSONObject counters = new JSONObject();
 		
@@ -59,5 +87,8 @@ public class DocumentStatVisitor implements Visitor{
 		jsonOutput.put("conters", counters);
 		
 		System.out.println(jsonOutput.toString());
+		
+		this.writeStringToFile("output.json", jsonOutput.toString());
+		
 	}
 }

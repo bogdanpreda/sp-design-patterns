@@ -5,6 +5,9 @@ public class Sectiune extends AbstractElement{
 	private String titlu;
 	private ArrayList<Element> continutSectiune = new ArrayList<Element>();
 	
+	public Sectiune(String titlu) {
+		this.titlu = titlu;
+	}
 	public void add(Element e) throws Exception {
 		continutSectiune.add(e);
 	}
