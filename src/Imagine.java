@@ -6,7 +6,7 @@ public class Imagine extends AbstractElement{
 	public Imagine(String nume) {
 		super();
 		this.nume = nume;
-//		data = loadFromFIle(filename);
+//		data = this.loadFromFIle(filename);
 	}
 
 	public String getNume() {
@@ -27,5 +27,8 @@ public class Imagine extends AbstractElement{
 		
 	}
 	
+//	public void loadFromFile(filename) {
+//		//data loader
+//	}
 	
 }

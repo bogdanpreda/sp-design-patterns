@@ -17,7 +17,7 @@ public class Autor {
 
 	@Override
 	public String toString() {
-		return "Autor [nume=" + nume + "]";
+		return this.nume;
 	}
 	
 }
