@@ -13,12 +13,11 @@ public class DocumentStatVisitor implements Visitor{
 	private int sectiuneCounter = 0;
 	
 	public void visitImageProxy(Imagine img) {
-		this.imageCounter++;
 		
 	}
 
 	public void visitImage(Imagine img) {
-		// TODO Auto-generated method stub
+		this.imageCounter++;
 		
 	}
 
@@ -89,6 +88,11 @@ public class DocumentStatVisitor implements Visitor{
 		System.out.println(jsonOutput.toString());
 		
 		this.writeStringToFile("output.json", jsonOutput.toString());
+		
+	}
+
+	public void visitImageProxy(ImageProxy img) {
+		// TODO Auto-generated method stub
 		
 	}
 }

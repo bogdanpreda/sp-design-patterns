@@ -1,6 +1,5 @@
 import java.util.ArrayList;
 
-
 public class Sectiune extends AbstractElement{
 	private String titlu;
 	private ArrayList<Element> continutSectiune;
@@ -25,7 +24,11 @@ public class Sectiune extends AbstractElement{
 	public void accept(Visitor v) {
 		v.visitSectiune(this);
 	}
-	
+	public void acceptChildren(DocumentStatVisitor dsv) {
+		for(Element elem : continutSectiune) {
+			elem.accept(dsv);
+		}
+	}
 	public void print() {
 		System.out.println(titlu);
 		for(Element e : continutSectiune) {

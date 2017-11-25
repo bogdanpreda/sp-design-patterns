@@ -3,39 +3,29 @@ import java.util.ArrayList;
 public class Carte {
 	private String titlu;
 	private ArrayList<Autor> autori;
-	private Cuprins cuprins;
 	private ArrayList<Element> capitole;
 	public AlignStrategy leftAlignment = new LeftAlignment();
 	public AlignStrategy centerAlignment= new CenterAlignment();
 	public AlignStrategy rightAlignment = new RightAlignment();
-	
+	public AlignStrategy psdAlignmnet = new PSDAlign();
 	public Carte() {
 		this.titlu = "";
 		this.capitole =  new ArrayList<Element>();
 		this.autori = new ArrayList<Autor>();
 	}
 	
-	public Carte(String numeCarte, Cuprins cuprins) {
+	public Carte(String numeCarte) {
 		this.titlu = numeCarte;
-		this.cuprins = cuprins;
-		this.capitole = new ArrayList<Element>();
+		this.capitole =  new ArrayList<Element>();
 		this.autori = new ArrayList<Autor>();
 	}
 	
-<<<<<<< HEAD
 	public void accept(DocumentStatVisitor dsv) {
-		for(Element elem : content) {
-			elem.accept(elem);
+		for(Element elem : capitole) {
+			elem.accept(dsv);
 		}
 	}
-	//TODO: to be updated using the composite design pattern
-//	public Carte(String numeCarte, String numeAutor, String numeCuprins, String titluCapitol, String titluSubcapitol, String textParagraf, String numeImagine, String numeTabel) {
-//		this.nume = numeCarte;
-//		this.autori.add(new Autor(numeAutor));
-//		this.cuprins = new Cuprins(numeCuprins);
-//		this.capitole.add(new Capitol(titluCapitol, titluSubcapitol, textParagraf, numeImagine, numeTabel));
-//	}
-=======
+
 	public void print(){
 		System.out.println("Titlu: " + this.titlu);
 		System.out.print("Autori: ");
@@ -78,15 +68,6 @@ public class Carte {
 
 	public void setCapitole(ArrayList<Element> capitole) {
 		this.capitole = capitole;
-	}
->>>>>>> strategy
-	
-	public Cuprins getCuprins() {
-		return cuprins;
-	}
-
-	public void setCuprins(Cuprins cuprins) {
-		this.cuprins = cuprins;
 	}
 	
 }

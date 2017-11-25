@@ -7,6 +7,11 @@ public class ImageProxy extends AbstractElement{
 		this.fileName = filename;
 	}
 	
+
+	public void accept(Visitor v) {
+//		v.visitImageProxy(this);
+	}
+	
 	public void print(){
 		if(realImage == null){
 			realImage = new Imagine(fileName);
