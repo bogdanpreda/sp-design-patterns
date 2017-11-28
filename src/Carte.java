@@ -33,8 +33,8 @@ public class Carte {
 		for(Autor autor : this.autori) {
 			System.out.print(autor + (autor == this.autori.get(this.autori.size() - 1) ? "\n" : ", "));
 		}
-		
 		for(Element e : this.capitole){
+			System.out.println();
 			e.print();
 		}
 	}
