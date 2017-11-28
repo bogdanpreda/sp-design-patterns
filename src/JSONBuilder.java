@@ -22,24 +22,37 @@ public class JSONBuilder implements Builder{
 		this.parseJson();
 	}
 	
-	public void iterateChildren(JSONArray children, Sectiune sectiune) {
+	public void iterateChildren(JSONArray children, Sectiune sectiune) throws Exception {
 		  Iterator<JSONObject> iterator = children.iterator();
-		  
+		  Element el = null;
           while (iterator.hasNext()) {	
 			  JSONObject childObj = iterator.next();
-        	  if (childObj.get("class").equals("Section")) {
-        		  Sectiune s = new Sectiune((String)childObj.get("title"));
-        		  
+			  String classType = (String) childObj.get("class");
+        	  if (classType.equals("Section")) {
+        		  Sectiune s = new Sectiune((String) childObj.get("title"));
+        		  sectiune.add(s);
         		  if (childObj.get("children") != null) {
         			  iterateChildren((JSONArray) childObj.get("children"), sectiune);
         		  }
         	  } else {
-        		  if()
+        		  switch(classType) {
+        		  case "Paragraph":
+        			  el = new Paragraf((String) childObj.get("text"), null);
+        			  break;
+        		  case "Image":
+        			  el = new Imagine((String) childObj.get("url"));
+        			  break;
+        		  case "ImageProxy":
+        			  el = new ImageProxy((String) childObj.get("url"));
+        			  break;
+        		  }
+        		  if(el != null) {
+        			  sectiune.add(el);
+        		  }
         	  }
         		  
           }
     	}
-	
 	
 	public void parseJson() {
 		JSONParser parser = new JSONParser();
@@ -52,48 +65,58 @@ public class JSONBuilder implements Builder{
 			jsonObject = (JSONObject) obj;
 			  String classType = (String) jsonObject.get("class");
 			  if(depth == 0 && classType.equals("Section")) {
-				  String titlu = (String) jsonObject.get("title");
-		          System.out.println("\n\nTitlu: " + titlu);
+//				  String titlu = (String) jsonObject.get("title");
+//		          System.out.println("\n\nTitlu: " + titlu);
 		          
 		          Carte carte = new Carte(jsonObject.get("title").toString());
 		          children = (JSONArray) jsonObject.get("children");
-		          
 		          Iterator<JSONObject> iterator = children.iterator();
 		          while (iterator.hasNext()) {	
 					  JSONObject childObj = iterator.next();
 					  
-		        	  System.out.println(childObj.get("class"));
-		        	  System.out.println(childObj.get("title"));
+//		        	  System.out.println(childObj.get("class"));
+//		        	  System.out.println(childObj.get("title"));
+//		        	  
+		        	  if (childObj.get("class").equals("Section")) {
+				          Sectiune s = new Sectiune((String) childObj.get("title"));
+				          
+				          if (childObj.get("children") != null) {
+		        			  iterateChildren((JSONArray) childObj.get("children"), s);
+		        		  }
+				          
+				          carte.addCapitol(s);
+		        	  }
 			  }
-	         
+		         
+		      carte.print();
 //	          System.out.println(children);
 	          
-	          Iterator<JSONObject> iterator = children.iterator();
-	          while (iterator.hasNext()) {	
-				  JSONObject childObj = iterator.next();
-				  
-	        	  System.out.println(childObj.get("class"));
-	        	  System.out.println(childObj.get("title"));
-	        	  
-	        	  children2 = (JSONArray) childObj.get("children");
-	        	  if(children2 != null) {
-	        		  Iterator<JSONObject> iterator2 = children2.iterator();
-	        		  while(iterator2.hasNext()) {
-	        			  JSONObject childObj2 = iterator2.next();
-		        		  
-		        		  String childObj2Class = (String)childObj2.get("class");
-		        		  if(childObj2Class.equals("Paragraph")) {
-		        			  System.out.println(childObj2.get("text"));
-		        		  } else if(childObj2Class.equals("ImageProxy")) {
-		        			  System.out.println("image: " + childObj2.get("url"));
-		        		  }
-		        		  System.out.println();
-	        		  }
-	        		  
-	        	  }
-	        	
-	          }
-
+//	          Iterator<JSONObject> iterator1 = children.iterator();
+//	          while (iterator1.hasNext()) {	
+//				  JSONObject childObj = iterator1.next();
+//				  
+//	        	  System.out.println(childObj.get("class"));
+//	        	  System.out.println(childObj.get("title"));
+//	        	  
+//	        	  children2 = (JSONArray) childObj.get("children");
+//	        	  if(children2 != null) {
+//	        		  Iterator<JSONObject> iterator2 = children2.iterator();
+//	        		  while(iterator2.hasNext()) {
+//	        			  JSONObject childObj2 = iterator2.next();
+//		        		  
+//		        		  String childObj2Class = (String)childObj2.get("class");
+//		        		  if(childObj2Class.equals("Paragraph")) {
+//		        			  System.out.println(childObj2.get("text"));
+//		        		  } else if(childObj2Class.equals("ImageProxy")) {
+//		        			  System.out.println("image: " + childObj2.get("url"));
+//		        		  }
+//		        		  System.out.println();
+//	        		  }
+//	        		  
+//	        	  }
+//	        	
+//	          }
+			  }
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

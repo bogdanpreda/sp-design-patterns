@@ -8,6 +8,7 @@ public class Carte {
 	public AlignStrategy centerAlignment= new CenterAlignment();
 	public AlignStrategy rightAlignment = new RightAlignment();
 	public AlignStrategy psdAlignmnet = new PSDAlign();
+	
 	public Carte() {
 		this.titlu = "";
 		this.capitole =  new ArrayList<Element>();
@@ -28,9 +29,9 @@ public class Carte {
 
 	public void print(){
 		System.out.println("Titlu: " + this.titlu);
-		System.out.print("Autori: ");
+		System.out.println("Autori: ");
 		for(Autor autor : this.autori) {
-			System.out.print(autor + (autor == this.autori.get(this.autori.size() -1) ? "\n" : ", "));
+			System.out.print(autor + (autor == this.autori.get(this.autori.size() - 1) ? "\n" : ", "));
 		}
 		
 		for(Element e : this.capitole){
