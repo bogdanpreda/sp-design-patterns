@@ -47,18 +47,19 @@ public class JSONBuilder implements Builder{
     		  }
           }
     	}
-	public void buildPart() {
+	public Element buildPart() {
+		Sectiune sect = null;
 		JSONParser parser = new JSONParser();
 		try {
 			Object obj = parser.parse(new FileReader(this.path));
 			JSONObject jsonObject = (JSONObject) obj;
 			  String classType = (String) jsonObject.get("class");
 			  if(classType.equals("Section")) {
-		          Sectiune sect = new Sectiune(jsonObject.get("title").toString());
+		          sect = new Sectiune(jsonObject.get("title").toString());
 		          if (jsonObject.get("children") != null) {
         			  iterateChildren((JSONArray) jsonObject.get("children"), sect);
         		  }
-		       sect.print();
+//		       return sect;
 			  }
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -67,6 +68,7 @@ public class JSONBuilder implements Builder{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		return sect;
 	}
 }
 

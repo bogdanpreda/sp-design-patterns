@@ -39,9 +39,16 @@ public class Main {
 //		carte.addCapitol("Capitolul1", subcapitole);
 		
 //		Builder builder = new JSONBuilder("/home/bogdanp/Univ/SP/book.json");
-		Builder builder = new JSONBuilder("f:\\SP\\book.json");
 		
-		builder.buildPart();
+		Command openCommand = new OpenCommand("f:\\SP\\book.json");
+		openCommand.execute();
+		DocumentManager.getInstance().getBook().print();
 		
+		Command statisticsCommand = new StatisticsCommand();
+		System.out.println("\nStatistica: ");
+		statisticsCommand.execute();
+		
+		
+		//Tema: Builder si saveVisitor;
 	}
 }
