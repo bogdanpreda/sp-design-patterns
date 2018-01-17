@@ -12,7 +12,7 @@ import org.json.simple.parser.JSONParser;
 
 public class JSONBuilder implements Builder{
 	private String path;
-
+	private Element book;
 	public JSONBuilder(String patToFile) {
 		this.path = patToFile;
 	}
@@ -47,7 +47,7 @@ public class JSONBuilder implements Builder{
     		  }
           }
     	}
-	public Element buildPart() {
+	public void buildPart() {
 		Sectiune sect = null;
 		JSONParser parser = new JSONParser();
 		try {
@@ -68,7 +68,11 @@ public class JSONBuilder implements Builder{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		return sect;
+		book = sect;
+	}
+	
+	public Element getRest() {
+		return this.book;
 	}
 }
 

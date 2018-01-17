@@ -1,5 +1,5 @@
 
-public class ImageProxy extends AbstractElement{
+public class ImageProxy extends ObservableElement{
 	private String fileName;
 	private Imagine realImage = null;
 	

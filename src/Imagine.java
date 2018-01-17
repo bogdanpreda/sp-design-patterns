@@ -1,5 +1,5 @@
 
-public class Imagine extends AbstractElement{
+public class Imagine extends ObservableElement{
 	private String nume;
 //	private ImageData data;
 	
@@ -7,6 +7,7 @@ public class Imagine extends AbstractElement{
 		super();
 		this.nume = nume;
 //		data = this.loadFromFIle(filename);
+		this.setState("added image");
 	}
 
 	public String getNume() {

@@ -1,4 +1,5 @@
 
 public interface Builder {
-	Element buildPart();
+	void buildPart();
+	Element getRest();
 }

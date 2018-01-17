@@ -1,5 +1,5 @@
 
-public class Tabel extends AbstractElement{
+public class Tabel extends ObservableElement{
 	private String nume;
 
 	public Tabel(String nume) {

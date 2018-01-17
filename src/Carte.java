@@ -3,7 +3,7 @@ import java.util.ArrayList;
 public class Carte {
 	private String titlu;
 	private ArrayList<Autor> autori;
-	private ArrayList<Element> capitole;
+	private ArrayList<ObservableElement> capitole;
 	public AlignStrategy leftAlignment = new LeftAlignment();
 	public AlignStrategy centerAlignment= new CenterAlignment();
 	public AlignStrategy rightAlignment = new RightAlignment();
@@ -11,13 +11,13 @@ public class Carte {
 	
 	public Carte() {
 		this.titlu = "";
-		this.capitole =  new ArrayList<Element>();
+		this.capitole =  new ArrayList<ObservableElement>();
 		this.autori = new ArrayList<Autor>();
 	}
 	
 	public Carte(String numeCarte) {
 		this.titlu = numeCarte;
-		this.capitole =  new ArrayList<Element>();
+		this.capitole =  new ArrayList<ObservableElement>();
 		this.autori = new ArrayList<Autor>();
 	}
 	
@@ -59,15 +59,15 @@ public class Carte {
 		this.autori.add(autor);
 	}
 
-	public void addCapitol(Element e) {
+	public void addCapitol(ObservableElement e) {
 		this.capitole.add(e);
 	}
 
-	public ArrayList<Element> getCapitole() {
+	public ArrayList<ObservableElement> getCapitole() {
 			return capitole;
 	}
 
-	public void setCapitole(ArrayList<Element> capitole) {
+	public void setCapitole(ArrayList<ObservableElement> capitole) {
 		this.capitole = capitole;
 	}
 	

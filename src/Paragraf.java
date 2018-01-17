@@ -1,7 +1,7 @@
 import java.util.ArrayList;
 
 
-public class Paragraf extends AbstractElement{
+public class Paragraf extends ObservableElement{
 	private String text;
 	private AlignStrategy alignment;
 	
@@ -9,8 +9,17 @@ public class Paragraf extends AbstractElement{
 		super();
 		this.text = text;
 		this.alignment = alignment;
+		this.setState(text);
 	}
 
+	public Paragraf(String text, AlignStrategy alignment, Observer o) {
+		super();
+		this.text = text;
+		this.alignment = alignment;
+		super.attach(o);
+		this.setState(text);
+	}
+	
 	public String getText() {
 		return text;
 	}

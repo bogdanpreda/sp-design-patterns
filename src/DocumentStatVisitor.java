@@ -53,19 +53,20 @@ public class DocumentStatVisitor implements Visitor{
 		BufferedWriter writer = null;
 		try
 		{
-		    writer = new BufferedWriter( new FileWriter(file));
+		    writer = new BufferedWriter(new FileWriter(file));
 		    writer.write(msg);
 
 		}
-		catch ( IOException e)
+		catch(IOException e)
 		{
 		}
 		finally
 		{
 		    try
 		    {
-		        if ( writer != null)
-		        writer.close( );
+		        if(writer != null) {
+		        	writer.close( );
+		        }
 		    }
 		    catch ( IOException e)
 		    {
@@ -83,7 +84,7 @@ public class DocumentStatVisitor implements Visitor{
 		counters.put("visitSectiune", this.getSectiuneCounter());
 		
 		JSONObject jsonOutput = new JSONObject();
-		jsonOutput.put("conters", counters);
+		jsonOutput.put("counters", counters);
 		
 		System.out.println(jsonOutput.toString());
 		
