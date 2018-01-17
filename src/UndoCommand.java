@@ -1,3 +1,5 @@
+import java.util.Stack;
+
 public class UndoCommand implements Command{
 	public UndoCommand() {
 		
@@ -5,15 +7,14 @@ public class UndoCommand implements Command{
 
 	@Override
 	public void execute() {
-		Element book = DocumentManager.getInstance().getBook();
-		
-		DocumentStatVisitor visitor = new DocumentStatVisitor();
-		book.accept(visitor);
-		
-		visitor.printStatistica();
+		Stack<Command> undoBuffer = DocumentManager.getInstance().getUndoBufferInstance();
+		Command topCommand = undoBuffer.pop();
+		topCommand.unexecute();
 	}
 	
+	@Override
 	public void unexecute() {
-				
+		// TODO Auto-generated method stub
+		
 	}	
 }

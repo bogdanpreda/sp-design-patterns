@@ -1,1 +1,5 @@
-/Subject.class
+/Memento.class
+/DeleteCommand.class
+/MementoTest.class
+/CareTaker.class
+/Originator.class

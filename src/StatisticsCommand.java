@@ -13,6 +13,12 @@ public class StatisticsCommand implements Command{
 		
 		dsv.printStatistica();
 	}
+
+	@Override
+	public void unexecute() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }

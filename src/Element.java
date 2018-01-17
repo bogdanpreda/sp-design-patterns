@@ -1,3 +1,4 @@
+import java.util.Collection;
 
 public interface Element {
 	

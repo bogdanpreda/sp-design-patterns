@@ -1,6 +1,8 @@
+import java.util.Stack;
 
 public class DocumentManager {
 	private static DocumentManager instance = null;
+	private Stack<Command> undoBuffer = new Stack<Command>();
 	private Element book;
 	private DocumentManager() {
 		
@@ -21,4 +23,7 @@ public class DocumentManager {
 		return this.book;
 	}
 	
+	public Stack<Command> getUndoBufferInstance() {
+		return this.undoBuffer;
+	}
 }

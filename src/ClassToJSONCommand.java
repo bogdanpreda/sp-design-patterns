@@ -15,6 +15,12 @@ public class ClassToJSONCommand implements Command{
 		System.out.println(gson.toJson(DocumentManager.getInstance().getBook()));
 		
 	}
+
+	@Override
+	public void unexecute() {
+		// TODO Auto-generated method stub
+		
+	}
 	
 	
 }
