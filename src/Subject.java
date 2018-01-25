@@ -25,7 +25,7 @@ public class Subject {
 	}
 	
 	public void notif(Object o) {
-		System.out.println("Running update [" + observables.size() + "] " + ((Subject) o).getState());
+		//System.out.println("Running update [" + observables.size() + "] " + ((Subject) o).getState());
 		for( Observer obs : observables) {
 			obs.update(o);
 		}

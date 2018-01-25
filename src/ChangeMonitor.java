@@ -14,7 +14,7 @@ public class ChangeMonitor implements Observer{
 	@Override
 	public void update(Object o) {
 
-	      System.out.println("Change:" + ((Subject) o).getState());
+	      System.out.println("Change: " + ((Subject) o).getState());
 		
 	}
 	
